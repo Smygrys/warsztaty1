@@ -1,0 +1,86 @@
+<form
+  class="contact-form fade-in"
+  id="contactForm"
+  action="https://formspree.io/f/xzdrgvpz"
+  method="POST"
+>
+  <h3><i class="fas fa-paper-plane"></i> Wyślij wiadomość</h3>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Imię i nazwisko *</label>
+      <input type="text" name="name" placeholder="Jan Kowalski" required />
+    </div>
+    <div class="form-group">
+      <label>Telefon *</label>
+      <input type="tel" name="phone" placeholder="+48 XXX XXX XXX" required />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="twoj@email.pl" />
+  </div>
+
+  <div class="form-group">
+    <label>Rodzaj usługi</label>
+    <select name="service">
+      <option value="">-- Wybierz usługę --</option>
+      <option value="Serwis mechaniczny">Serwis mechaniczny</option>
+      <option value="Elektronika samochodowa">Elektronika samochodowa</option>
+      <option value="Diagnostyka komputerowa">Diagnostyka komputerowa</option>
+      <option value="Wtryskiwacze">Wtryskiwacze</option>
+      <option value="Klimatyzacja">Klimatyzacja</option>
+      <option value="Silniki diesla">Silniki diesla</option>
+      <option value="Wulkanizacja">Wulkanizacja</option>
+      <option value="Inne">Inne</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Wiadomość</label>
+    <textarea
+      name="message"
+      placeholder="Opisz problem lub zadaj pytanie..."
+      rows="5"
+    ></textarea>
+  </div>
+
+  <input
+    type="hidden"
+    name="_subject"
+    value="Nowa wiadomość ze strony AUTO-PERFEKT"
+  />
+  <input type="text" name="_gotcha" style="display: none" />
+
+  <button type="submit" class="btn btn-primary" style="width: 100%">
+    <i class="fas fa-paper-plane"></i> Wyślij wiadomość
+  </button>
+
+  <p
+    style="
+      text-align: center;
+      margin-top: 1rem;
+      color: var(--silver);
+      font-size: 0.9rem;
+    "
+  >
+    <i class="fas fa-lock"></i> Twoje dane są bezpieczne
+  </p>
+</form>
+<script>
+  // ============================================
+  // CONTACT FORM - Formspree
+  // ============================================
+
+  const contactForm = document.getElementById("contactForm");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function () {
+      const submitBtn = this.querySelector('button[type="submit"]');
+      submitBtn.innerHTML =
+        '<i class="fas fa-spinner fa-spin"></i> Wysyłanie...';
+      submitBtn.disabled = true;
+    });
+  }
+</script>
